@@ -1,0 +1,89 @@
+{% extends './home.html' %} {% block title %}Create a Post{% endblock %} 
+{% load crispy_forms_tags %} 
+
+{%load static%}
+
+{%block content%}
+
+{%include 'partials/topnav.html'%}
+
+<style>
+
+  .container-mod{
+    margin-left: 20px;
+    background-color: #fff;
+  }
+  .header img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  .space-in{
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  
+  
+</style>
+<div class="container-mod">
+  
+  {%include 'partials/sidebar.html'%}
+<div class="main" style="margin-left: 26%;">
+  <div class="row">
+    <div class="column">
+      <form method="post">
+        {% csrf_token %}{{form|crispy}}
+      
+        <button type="submit" class="btn btn-success">Post</button>
+      </form>
+    </div>
+    <div class="column-post">
+  </div>
+  {% for post in posts %}
+  <div class="header" style="margin-left: 10px;">
+    <img style="margin-top: 10px;" src="{% static 'images/12345.jpeg' %}">
+    <strong>
+      {{ post.author.username }}
+    </strong>
+  </div>
+   <div class="body d-flex flex-row justify-content-between">
+     <div>
+       <h5 class="card-title" style="margin-left: 10px; font-size:17px;"><strong>
+        {{post.title}}
+       </strong>
+        
+       </h5>
+       <p style="margin-left: 10px; font-size:15px;">{{post.description}}</p>
+     </div>
+     <div>
+  
+      {% if user == post.author or perms.main.delete_post%}
+        <form method="post">
+          {%csrf_token%}
+          <button type="submit" class="btn btn-danger" 
+          style="margin-right: 10px;"
+          name="post-id" value="{{post.id}}">Delete</button>
+        </form>
+  
+      {%endif%}
+
+     </div>  
+     </div>
+     <div class="text-muted" style="margin-left: 10px; font-size:15px;">{{post.created_at}}</div>
+     <div class="space-in">
+  
+     </div>
+     {% empty %}
+     <p> No post yet</p>
+     
+    
+  {% endfor %}
+  
+      </div>
+    </div>
+
+</div>    
+
+  
+{% endblock %}

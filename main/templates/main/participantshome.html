@@ -1,0 +1,49 @@
+{%extends 'partials/base.html'%}
+{%block title%} add-group-admin {%endblock%}
+{%block content%}
+{%load static%}
+{% include 'partials/topnav.html'%}
+<div class="container-mod">    
+    {% include 'partials/sidebar.html'%}  
+     <div class="main">  
+    <div class="row">
+        <div class="col">
+            <h4 style="margin-top: 10px;"> Create group </h4>
+            {% for student in students %}
+            <p>{{student}}</p>
+            {%if student.assignedgroup%}
+            <a style="border:1px solid black; padding-left:80px;background-color:rgb(127, 20, 131);color:white;" href=""> Already assigned </a> 
+            {%else%}
+            <a style="border:1px solid black; padding-left:100px;background-color:rgb(50, 141, 202); color:white;" href="{% url 'add-participant' student.id %}"> Add </a> 
+            {%endif%}
+            {%endfor%}
+        </div>
+
+        
+        <div class="col card">
+            <div style="margin-top:10px;">
+              <h4>{{ group }} members</h4> <hr>
+            </div>
+            {% for member in members %}
+            <a href="/"> {{ member.student }}</a>
+            {%endfor%}
+        </div>
+
+        <div class="col">
+            <h4 style="margin-top: 10px;"> Create group </h4>
+           {% if group_exist == False %}
+           <form method="POST">
+               {% csrf_token %}
+               <label >name</label><input type="text" name="name">
+               <button type="submit">Create</button>
+           </form>
+           {% endif %}
+       </div>
+    </div>
+</div>
+    
+
+     
+</div>
+
+{%endblock%}

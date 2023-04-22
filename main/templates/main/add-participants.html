@@ -1,0 +1,27 @@
+{%extends 'partials/base.html'%}
+{%block title%} add-group-admin {%endblock%}
+{%block content%}
+{%load static%}
+{% include 'partials/topnav.html'%}
+<div class="container-mod">    
+    {% include 'partials/sidebar.html'%}  
+     <div class="main">  
+    <div class="row">
+        <div class="col">
+            <p style="font-weight:bold;">Group Members</p>
+            {% for member in members %}
+            <p>{{ member.student }}</p>
+            <a style="border:1px solid black; padding-left:100px;" href="/"> remove</a>
+            {%endfor%}
+        </div>
+        <div class="col">
+            <p>students</p>
+            {% for student in students %}
+            <a style="border:1px solid black; padding-left:100px;" href="{% url 'add-participant' student.id %}">Add</a><p>{{student}}</p>
+            {%endfor%}
+        </div>
+    </div>
+</div>   
+</div>
+
+{%endblock%}

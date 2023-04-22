@@ -1,0 +1,131 @@
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: rgb(226, 226, 226);
+}
+.nav-sidebar{
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 94vh;
+  left: 0;
+  width: 90px;
+  /* width: 280px; */
+  background: rgb(192, 187, 187);
+  overflow: hidden;
+  transition: 1s;
+}
+.nav-sidebar:hover{
+  width: 280px;
+  transition: 1s;
+}
+.logo{
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+  padding-bottom: 3rem;
+}
+
+
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+ul {
+  list-style-type: none;
+}
+.container-mod a{
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  color: rgb(44, 42, 42);
+  display: table;
+  padding: 10px;
+  text-decoration: none;
+}
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+a:hover{
+  background: #eee;
+}
+a:hover i{
+  color: #34AF6D;
+  transition: 0.5s;
+}
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+
+
+.container-mod{
+  display: flex;
+  
+}
+
+/* section area */
+.main{
+  position: relative;
+  padding: 20px;
+  width: 70%;
+  border-radius: 40px;
+} */
+
+  .column {
+  float: left;
+  width: 30%;
+  background-color: rgb(247, 133, 139);
+  margin:0 8px;
+  
+}
+
+
+/* Clear floats after the columns */
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+.header{
+  border-radius: 5px;
+}
+
+
+.header img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.space{
+  background-color: rgb(133, 247, 247);
+  padding: 10px;
+}
+
+
